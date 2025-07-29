@@ -9,7 +9,8 @@ export const fetchFromOpenRouter = async (messages: Message[], modelName: string
     role: m.role === 'error' ? 'assistant' : m.role,
     content: m.content,
   }));
-
+  console.log(`request model name: ${modelName}`);
+  
   const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {

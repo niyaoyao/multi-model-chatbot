@@ -25,7 +25,7 @@ const ModelSelector: React.FC<ModelSelectorProps> = ({ model, setModel, modelLis
   return (
     <div className="model-selector" ref={containerRef}>
       <button className="model-selector-button" onClick={() => setIsOpen(!isOpen)}>
-        {model} ▾
+        ▾ {model} 
       </button>
 
       <div className={`model-dropdown ${isOpen ? 'open' : ''}`}>
@@ -35,6 +35,7 @@ const ModelSelector: React.FC<ModelSelectorProps> = ({ model, setModel, modelLis
             className={`model-option ${m === model ? 'selected' : ''}`}
             onClick={() => {
               setModel(m);
+              console.log(`click model: ${m}`);
               setIsOpen(false);
             }}
           >

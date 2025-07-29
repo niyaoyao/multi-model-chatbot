@@ -3,9 +3,8 @@ import ChatInput from './ChatInput';
 import ChatMessage from './ChatMessage';
 import { useChat } from '../hooks/useChat';
 
-
 const ChatWindow: React.FC = () => {
-  const {sendMessage, userAvatar, messages} = useChat();
+  const { sendMessage, userAvatar, messages } = useChat();
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -13,7 +12,9 @@ const ChatWindow: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messages.length > 1) {
+      bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [messages]);
 
   return (
